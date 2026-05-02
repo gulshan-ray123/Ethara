@@ -24,6 +24,10 @@ app.use(
 app.use(express.json({ limit: "1mb" }));
 app.use(morgan(process.env.NODE_ENV === "production" ? "combined" : "dev"));
 
+app.get('/test',(req,res)=>{
+  res.send("App is running");
+})
+
 app.get("/api/health", (_req, res) => {
   res.json({ status: "ok", service: "team-task-manager" });
 });
